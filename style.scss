@@ -1,0 +1,177 @@
+$cell-size: 100px;
+$mark-size: ($cell-size) * .9;
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.board {
+  margin: 0 auto;
+  width: 100vh;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+
+  // Hover X when board has 'x' class
+  &.x {
+
+    .cell:not(.x):not(.o):hover::before,
+    .cell:not(.x):not(.o):hover::after {
+      content: '';
+      position: absolute;
+      width: $mark-size * .15;
+      height: $mark-size;
+      background-color: lightgrey;
+    }
+
+    .cell:not(.x):not(.o):hover::before {
+      transform: rotate(45deg);
+    }
+
+    .cell:not(.x):not(.o):hover::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  // Hover O when board has 'o' class
+  &.o {
+
+    .cell:not(.x):not(.o):hover::before,
+    .cell:not(.x):not(.o):hover::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .cell:not(.x):not(.o):hover::before {
+      width: $mark-size;
+      height: $mark-size;
+      background-color: lightgrey;
+    }
+
+    .cell:not(.x):not(.o):hover::after {
+      width: $mark-size * .7;
+      height: $mark-size * .7;
+      background-color: white;
+    }
+  }
+}
+
+.cell {
+  width: $cell-size;
+  height: $cell-size;
+  position: relative;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &.x,
+  &.o {
+    cursor: not-allowed;
+  }
+
+  // Draw X
+  &.x::before,
+  &.x::after {
+    content: '';
+    position: absolute; // adjust X to the correct looks
+    width: $mark-size * .15;
+    height: $mark-size;
+    background-color: black;
+  }
+
+  &.x::before {
+    transform: rotate(45deg);
+  }
+
+  &.x::after {
+    transform: rotate(-45deg);
+  }
+
+  // Draw O
+  &.o::before,
+  &.o::after {
+    content: '';
+    position: absolute; // adjust O to the correct looks
+    border-radius: 50%;
+  }
+
+  &.o::before {
+    width: $mark-size;
+    height: $mark-size;
+    background-color: black;
+  }
+
+  &.o::after {
+    width: $mark-size * .7;
+    height: $mark-size * .7;
+    background-color: white;
+  }
+}
+
+// Draw Board
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+.cell:nth-child(3n) {
+  border-right: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+  border-bottom: none;
+}
+
+.cell:nth-child(3n + 1) {
+  border-left: none;
+}
+
+.winning-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .9);
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 5rem;
+  flex-direction: column;
+
+  button {
+    font-size: 3rem;
+    background-color: white;
+    border: 1px solid black;
+    padding: .25em .5em;
+    cursor: pointer;
+
+    &:hover {
+      background-color: black;
+      color: white;
+      border-color: white;
+    }
+  }
+
+  &.show {
+    display: flex;
+  }
+}
