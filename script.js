@@ -80,7 +80,7 @@ const endGame = (draw) => {
   if (draw) {
     winningMessageTextElement.innerText = 'DRAW...';
   } else {
-    winningMessageTextElement.innerText = `${xTurn ? "X's" : "O's"} Wins!`;
+    winningMessageTextElement.innerText = `${xTurn ? "X" : "O"} Win!`;
   }
   winningMessageElement.classList.add('show');
 };
