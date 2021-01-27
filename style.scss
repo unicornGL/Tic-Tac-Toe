@@ -1,4 +1,4 @@
-$cell-size: 100px;
+$cell-size: 150px;
 $mark-size: ($cell-size) * .9;
 
 
@@ -9,8 +9,10 @@ $mark-size: ($cell-size) * .9;
   font-family: 'Syne', sans-serif;
 }
 
+html,
 body {
   margin: 0;
+  padding: 0;
 }
 
 .board {
