@@ -6,6 +6,7 @@ $mark-size: ($cell-size) * .9;
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: 'Syne', sans-serif;
 }
 
 body {
