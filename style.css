@@ -2,11 +2,13 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Bungee', cursive;
 }
 
+html,
 body {
   margin: 0;
+  padding: 0;
 }
 
 .board {
@@ -25,8 +27,8 @@ body {
 .board.x .cell:not(.x):not(.o):hover::after {
   content: '';
   position: absolute;
-  width: 13.5px;
-  height: 90px;
+  width: 20.25px;
+  height: 135px;
   background-color: lightgrey;
 }
 
@@ -46,20 +48,20 @@ body {
 }
 
 .board.o .cell:not(.x):not(.o):hover::before {
-  width: 90px;
-  height: 90px;
+  width: 135px;
+  height: 135px;
   background-color: lightgrey;
 }
 
 .board.o .cell:not(.x):not(.o):hover::after {
-  width: 63px;
-  height: 63px;
+  width: 94.5px;
+  height: 94.5px;
   background-color: white;
 }
 
 .cell {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   position: relative;
   border: 1px solid black;
   display: flex;
@@ -75,8 +77,8 @@ body {
 .cell.x::before, .cell.x::after {
   content: '';
   position: absolute;
-  width: 13.5px;
-  height: 90px;
+  width: 20.25px;
+  height: 135px;
   background-color: black;
 }
 
@@ -95,14 +97,14 @@ body {
 }
 
 .cell.o::before {
-  width: 90px;
-  height: 90px;
+  width: 135px;
+  height: 135px;
   background-color: black;
 }
 
 .cell.o::after {
-  width: 63px;
-  height: 63px;
+  width: 94.5px;
+  height: 94.5px;
   background-color: white;
 }
 
